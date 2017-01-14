@@ -1,2 +1,3 @@
 name: Ryan Lynt
 markdown: kramdown
+permalink: /blog/:year/:month/:day/:title

@@ -1,1 +1,1 @@
-# rmlynt.github.io
+# rmlynt.com

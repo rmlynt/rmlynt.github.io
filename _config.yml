@@ -1,3 +1,5 @@
 name: Ryan Lynt
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
+pagination: 5
+paginate_path: /blog/page:num

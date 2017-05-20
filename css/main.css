@@ -110,12 +110,31 @@ nav {
   clear: both;
 }
 
+
 /*******************
 GENERAL SECTION
 *******************/
 
 .section {
   height: 740px;
+}
+
+.section-title {
+  color: #166639;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-bar {
+  height: 0px;
+  width: 50px;
+  margin: 0 auto;
+  border-bottom: 2px solid #166639;
 }
 
 /*******************
@@ -134,11 +153,12 @@ HEADER SECTION
   width: 700px;
   margin: 0px auto;
   border-bottom: 1px dotted grey;
+  color: #FFFBF3;
 }
 
 .taglines {
   text-align: center;
-  width: 800px;
+  width: 1000px;
   margin: 0px auto;
   padding-top: 80px;
   font-size: 60px;
@@ -168,6 +188,36 @@ ABOUT SECTION
   background-color: #F2F2F2;
 }
 
+.about-content {
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.about-content img {
+  border-radius: 50%;
+}
+
+.about-description {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.thoughts-btn-div {
+  margin: 0px auto;
+  text-align: center;
+  padding-top: 50px;
+}
+
+#thoughts-btn {
+  padding: 10px 20px;
+  background: transparent;
+  color: #166639;
+  border: 2px solid #166639;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
 /*******************
 PROJECTS SECTION
 *******************/
@@ -176,12 +226,155 @@ PROJECTS SECTION
   background-color: white;
 }
 
+.projects-content {
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 80px;
+  position: relative;
+}
+
+.project-description {
+  display: inline-block;
+  padding: 0 100px;
+}
+
+.project-description img {
+  border-radius: 50%;
+}
+
+.project-middle {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.left-arrow, .right-arrow {
+  display: inline-block;
+  position: absolute;
+  top: 33%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.left-arrow:hover, .right-arrow:hover {
+  background: grey;
+  color: white;
+}
+
+.left-arrow {
+  left: 0;
+  padding-left: 30px;
+  padding-right: 20px;
+}
+
+.right-arrow {
+  right: 0;
+  padding-left: 20px;
+  padding-right: 30px;
+}
+
+#project-four, #project-five, #project-six {
+  display: none;
+}
+
 /*******************
 RESUME SECTION
 *******************/
 
 #resume-section {
   background-color: #828282;
+}
+
+/*******************
+CONTACT SECTION
+*******************/
+
+.contact-container {
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 60px;
+  padding-left: 4%;
+  padding-right: 4%;
+  color: #166639;
+}
+
+.form {
+  width: 45%;
+  display: inline-block;
+}
+
+.contact-information {
+  width: 45%;
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 100px;
+}
+
+.contact-information p {
+  text-decoration: underline;
+}
+
+.contact-details {
+  display: block;
+  text-align: left;
+  padding: 10px 0px;
+}
+
+label {
+  display: inline-block;
+  width: 100px;
+}
+
+#inputName, #inputEmail, #inputSubject, #inputMessage {
+  width: 100%;
+  border: 1px solid #222B30;
+}
+
+#inputName:focus, #inputEmail:focus, #inputSubject:focus, #inputMessage:focus {
+  border: 1px solid #222B30;
+  background-color: #F2F2F2;
+  outline: none;
+  padding-left: 10px;
+}
+
+#contact-details-submit {
+  text-align: center;
+}
+
+#submit-btn {
+  width: 100px;
+  height: 50px;
+}
+
+.contact-information a {
+  text-decoration: none;
+  color: #222B30;
+}
+
+/*******************
+NOTIFICATION MESSAGE
+*******************/
+
+.notification-message-error, .notification-message-success {
+  position: fixed;
+  bottom: 200px;
+  right: 50px;
+  width: 200px;
+  height: 50px;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  display: none;
+}
+
+.notification-message-error {
+  background-color: #FF4136;
+  border: 1px solid red;
+}
+
+.notification-message-success {
+  background-color: #166639;
+  border: 1px solid green;
 }
 
 /*******************
@@ -216,6 +409,8 @@ footer {
   list-style: none;
   display: inline;
   margin-right: 20px;
+  text-decoration: none;
+  color: #E0E0E0;
 }
 
 .footer-right ul li a {
@@ -226,6 +421,26 @@ footer {
 /*******************
 MEDIA QUERIES
 *******************/
+
+@media (max-width: 1350px) {
+
+  #project-three {
+    display: none;
+  }
+
+  .project-middle {
+    border-right: none;
+  }
+
+}
+
+@media (max-width: 905px) {
+
+  #project-two {
+    display: none;
+  }
+
+}
 
 @media (max-width: 849px) {
   .menu-button {
@@ -297,7 +512,33 @@ MEDIA QUERIES
 
 }
 
+@media (max-width: 750px) {
+
+  .form, .contact-information {
+    display: block;
+    width: 100%;
+  }
+
+  .contact-container {
+    padding-top: 20px;
+  }
+
+  .contact-information {
+    padding-top: 30px;
+  }
+
+  .contact-information p {
+    display: inline-block;
+    margin: 10px 20px;
+  }
+
+}
+
 @media (max-width: 600px) {
+
+  .thoughts-btn-div {
+    padding-top: 20px;
+  }
 
   .nameAndDescription {
     font-sze: 20px;

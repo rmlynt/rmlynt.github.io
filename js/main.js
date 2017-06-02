@@ -4,7 +4,6 @@ var projectScroll = 0;
 
 function determineScroll() {
   var windowWidth = $(window).width();
-  console.log(windowWidth);
   if (windowWidth > 1350) {
     largeScroll();
   }
@@ -25,19 +24,11 @@ function largeScroll() {
   }
   switch (projectScroll) {
     case 0:
-      $("#project-four, #project-five, #project-six").fadeOut(100, function() {
-        $(this).css("display", "none");
-      });
-      $("#project-one, #project-two, #project-three").fadeIn(100, function() {
-        $(this).css("display", "inline-block");
-      });
+      $("#project-four, #project-five, #project-six").animate({marginLeft: '500px'});
       break;
     case 1:
-      $("#project-one, #project-two, #project-three").fadeOut(100, function() {
-        $(this).css("display", "none");
-      });
-      $("#project-four, #project-five, #project-six").fadeIn(100, function() {
-        $(this).css("display", "inline-block");
+      $("#project-one").animate({marginLeft: '2000px'}, function() {
+        $("#project-one, #project-two, #project-three").css("display", "none");
       });
       break;
   }
@@ -119,74 +110,37 @@ $(document).ready(function() {
     };
   })
 
-  //Add/Remove Classes based off which section is shown
-  // Needs to be rewritten eventually
+  //Add & Remove Classes based off which section is shown
 
   $(window).scroll(function() {
     var scroll = $(window).scrollTop();
+    $(".nav-ul ul li").children().removeClass("nav-active");
+    $(".mobile-nav-ul ul").children().removeClass("mobile-nav-active");
 
     if (scroll >= 2960) {
       $(".nav-ul ul #contact").addClass("nav-active");
-      $(".nav-ul ul #resume").removeClass("nav-active");
-      $(".nav-ul ul #header").removeClass("nav-active");
-      $(".nav-ul ul #about").removeClass("nav-active");
-      $(".nav-ul ul #projects").removeClass("nav-active");
       $(".mobile-nav-ul ul #contact").parent().addClass("mobile-nav-active");
-      $(".mobile-nav-ul #resume").parent().removeClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #header").parent().removeClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #about").parent().removeClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #projects").parent().removeClass("mobile-nav-active");
     }
     else if (scroll >= 2220) {
       $(".nav-ul ul #resume").addClass("nav-active");
-      $(".nav-ul ul #header").removeClass("nav-active");
-      $(".nav-ul ul #about").removeClass("nav-active");
-      $(".nav-ul ul #projects").removeClass("nav-active");
-      $(".nav-ul ul #contact").removeClass("nav-active");
       $(".mobile-nav-ul #resume").parent().addClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #header").parent().removeClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #contact").parent().removeClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #about").parent().removeClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #projects").parent().removeClass("mobile-nav-active");
     }
     else if (scroll >= 1480) {
       $(".nav-ul ul #projects").addClass("nav-active");
-      $(".nav-ul ul #header").removeClass("nav-active");
-      $(".nav-ul ul #about").removeClass("nav-active");
-      $(".nav-ul ul #resume").removeClass("nav-active");
-      $(".nav-ul ul #contact").removeClass("nav-active");
       $(".mobile-nav-ul ul #projects").parent().addClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #contact").parent().removeClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #header").parent().removeClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #about").parent().removeClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #resume").parent().removeClass("mobile-nav-active");
     }
     else if (scroll >= 740) {
       $(".nav-ul ul #about").addClass("nav-active");
-      $(".nav-ul ul #header").removeClass("nav-active");
-      $(".nav-ul ul #projects").removeClass("nav-active");
-      $(".nav-ul ul #resume").removeClass("nav-active");
-      $(".nav-ul ul #contact").removeClass("nav-active");
       $(".mobile-nav-ul ul #about").parent().addClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #contact").parent().removeClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #header").parent().removeClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #projects").parent().removeClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #resume").parent().removeClass("mobile-nav-active");
     }
     else if (scroll >= 0) {
       $(".nav-ul ul #header").addClass("nav-active");
-      $(".nav-ul ul #about").removeClass("nav-active");
-      $(".nav-ul ul #projects").removeClass("nav-active");
-      $(".nav-ul ul #resume").removeClass("nav-active");
-      $(".nav-ul ul #contact").removeClass("nav-active");
       $(".mobile-nav-ul ul #header").parent().addClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #contact").parent().removeClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #about").parent().removeClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #projects").parent().removeClass("mobile-nav-active");
-      $(".mobile-nav-ul ul #resume").parent().removeClass("mobile-nav-active");
     }
 
   })
+
+  // Project Section Arrow Functionality
 
   $(".left-arrow").on("click", function() {
     projectScroll--;
